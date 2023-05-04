@@ -21,7 +21,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-
-# ignore specific folder 'One-Piece' wich rotue is: src/One-Piece
-src/One-Piece
