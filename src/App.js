@@ -1,12 +1,11 @@
-// import logo from './logo.svg';
-import './App.css';
-import TomoComponent from './TomoComponent';
+import DemoImg1 from './One-Piece/1/1.png';
+import MyDocument from './components/MyDocument';
 
 function App() {
   return (
     <>
       <h1>One Piece Manga Site Demo</h1>
-      <TomoComponent />
+      <MyDocument imageUrl={DemoImg1} />
     </>
   );
 }
