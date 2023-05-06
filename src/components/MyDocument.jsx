@@ -46,9 +46,6 @@ function MyDocument() {
     try {
       const blob = await pdf(
         <Document>
-          {/* <Page size="A4" style={styles.page}>
-              <Image src={process.env.PUBLIC_URL + 'images/One-Piece/1/1.png'} style={styles.image} />
-          </Page> */}
           {tomo.map((page, index) => (
             <Page size="A4" style={styles.page} key={index}>
               <Image src={page} style={styles.image} />
