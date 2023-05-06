@@ -1,7 +1,6 @@
 import React from "react";
 import { Document, Page, Image, StyleSheet } from "@react-pdf/renderer";
 import { pdf } from "@react-pdf/renderer";
-import Tomo1Page1 from "../One-Piece/1/1.png";
 
 const styles = StyleSheet.create({
   page: {
@@ -28,7 +27,7 @@ const containerStyles = {
     justifyContent: "space-between",
     alignItems: "center",
     boxShadow: "0px 0px 5px 0px rgba(0,0,0,0.75)",
-    backgroundImage: `url(${Tomo1Page1})`,
+    backgroundImage: `url(${process.env.PUBLIC_URL + 'images/One-Piece/1/1.png'})`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
@@ -36,31 +35,15 @@ const containerStyles = {
   },
 };
 
-function MyDocument({ imageUrl }) {
-  const images = [
-    {
-      url: Tomo1Page1,
-    },
-    {
-      url: Tomo1Page1,
-    },
-    {
-      url: Tomo1Page1,
-    },
-    {
-      url: Tomo1Page1,
-    },
-  ];
+function MyDocument() {
 
   const handleButtonClick = async () => {
     try {
       const blob = await pdf(
         <Document>
-          {images.map((image) => (
-            <Page size="A4" style={styles.page}>
-              <Image src={image.url} style={styles.image} />
+          <Page size="A4" style={styles.page}>
+              <Image src={process.env.PUBLIC_URL + 'images/One-Piece/1/1.png'} style={styles.image} />
             </Page>
-          ))}
         </Document>
       ).toBlob();
       const url = URL.createObjectURL(blob);
