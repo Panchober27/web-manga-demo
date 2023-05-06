@@ -1,0 +1,48 @@
+[
+  {
+    "tomoIndex": 1,
+    "tomoName": "Tomo 1",
+    "chapters": [
+      {
+        "chapterIndex": 1,
+        "chapterName": "chapter 1",
+        "chapterPages": 56
+      },
+      {
+        "chapterIndex": 2,
+        "chapterName": "chapter 2",
+        "chapterPages": 23
+      },
+      {
+        "chapterIndex": 3,
+        "chapterName": "chapter 3",
+        "chapterPages": 23
+      },
+      {
+        "chapterIndex": 4,
+        "chapterName": "chapter 4",
+        "chapterPages": 20
+      },
+      {
+        "chapterIndex": 5,
+        "chapterName": "chapter 5",
+        "chapterPages": 21
+      },
+      {
+        "chapterIndex": 6,
+        "chapterName": "chapter 6",
+        "chapterPages": 22
+      },
+      {
+        "chapterIndex": 7,
+        "chapterName": "chapter 7",
+        "chapterPages": 21
+      },
+      {
+        "chapterIndex": 8,
+        "chapterName": "chapter 8",
+        "chapterPages": 20
+      }
+    ]
+  }
+]

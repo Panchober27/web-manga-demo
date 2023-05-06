@@ -1,20 +1,8 @@
 import React from "react";
-import { Document, Page, Image, StyleSheet } from "@react-pdf/renderer";
+import { Document, Page, Image } from "@react-pdf/renderer";
 import { pdf } from "@react-pdf/renderer";
-
 import { getTomoPages } from "../utils/tomosController";
-
-const styles = StyleSheet.create({
-  page: {
-    flexDirection: "row",
-    backgroundColor: "#E4E4E4",
-  },
-  image: {
-    objectFit: "contain",
-    width: "100%",
-    height: "100%",
-  },
-});
+import { pdfStyles } from "../utils/pdfStyles";
 
 const containerStyles = {
   card: {
@@ -39,16 +27,18 @@ const containerStyles = {
   },
 };
 
-function MyDocument() {
-  const tomo = getTomoPages(1);
+function MyDocument({tomoIndex}) {
+  
+  const tomo = getTomoPages(tomoIndex);
+
 
   const handleButtonClick = async () => {
     try {
       const blob = await pdf(
         <Document>
           {tomo.map((page, index) => (
-            <Page size="A4" style={styles.page} key={index}>
-              <Image src={page} style={styles.image} />
+            <Page size="A4" style={pdfStyles.page} key={index}>
+              <Image src={page} style={pdfStyles.image} />
             </Page>
           ))}
         </Document>

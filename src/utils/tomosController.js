@@ -1,13 +1,3 @@
-// const tomoNumber = 1;
-// const totalPages = 56;
-// const TomoPages = [];
-// for (let i = 1; i <= totalPages; i++) {
-//   const imageNumber = i.toString().padStart(2, "0");
-//   const imagePath = `images/One-Piece/${tomoNumber}/${imageNumber}.png`;
-//   TomoPages.push(imagePath);
-// }
-// export { TomoPages };
-
 export const getTomoPages = (tomoNomber) => {
   try {
     const totalPages = 56;
@@ -23,4 +13,12 @@ export const getTomoPages = (tomoNomber) => {
   }
 };
 
-
+// export const getAllTomoPages = (tomoIndex) => {
+export const getTomosData = async () => {
+  try {
+    const tomosData = await fetch("/tomosGuide.json");
+    return tomosData.json();
+  } catch (err) {
+    return null;
+  }
+};
