@@ -2,6 +2,8 @@ import React from "react";
 import { Document, Page, Image, StyleSheet } from "@react-pdf/renderer";
 import { pdf } from "@react-pdf/renderer";
 
+import { getTomoPages } from "../utils/tomosController";
+
 const styles = StyleSheet.create({
   page: {
     flexDirection: "row",
@@ -27,7 +29,9 @@ const containerStyles = {
     justifyContent: "space-between",
     alignItems: "center",
     boxShadow: "0px 0px 5px 0px rgba(0,0,0,0.75)",
-    backgroundImage: `url(${process.env.PUBLIC_URL + 'images/One-Piece/1/1.png'})`,
+    backgroundImage: `url(${
+      process.env.PUBLIC_URL + "images/One-Piece/1/1.png"
+    })`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
@@ -36,14 +40,20 @@ const containerStyles = {
 };
 
 function MyDocument() {
+  const tomo = getTomoPages(1);
 
   const handleButtonClick = async () => {
     try {
       const blob = await pdf(
         <Document>
-          <Page size="A4" style={styles.page}>
+          {/* <Page size="A4" style={styles.page}>
               <Image src={process.env.PUBLIC_URL + 'images/One-Piece/1/1.png'} style={styles.image} />
+          </Page> */}
+          {tomo.map((page, index) => (
+            <Page size="A4" style={styles.page} key={index}>
+              <Image src={page} style={styles.image} />
             </Page>
+          ))}
         </Document>
       ).toBlob();
       const url = URL.createObjectURL(blob);
